@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit"
-import squaresReducer from "../features/games/SquaresesSlice"
+import squaresReducer from "../features/squares/squaresesSlice"
 
 export default configureStore({
     reducer: {

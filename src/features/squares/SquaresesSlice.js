@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { randomId, randomValue } from "../../function/randomPosiValue"
 
 const initialState = [
     {id: 1, row: 0, column: 0, value: 0},
@@ -22,7 +23,26 @@ const initialState = [
 const squaresSlice = createSlice({
     name: 'squares',
     initialState,
-    reducers: {}
+    reducers: {
+        inititalRandomPosiValue: {
+            reducer(state, action) {
+                const existingPosi = state.find(squares =>  squares.id === action.payload.id);
+                if (existingPosi) {
+                    existingPosi.value = action.payload.value;
+                }
+            },
+            
+            prepare (state) {
+                return {
+                    payload: {
+                        id: randomId(state),
+                        value: randomValue(),
+                    }
+                }      
+            }
+        }
+    }
 })
 
+export const { inititalRandomPosiValue } = squaresSlice.actions
 export default squaresSlice.reducer

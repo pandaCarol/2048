@@ -17,18 +17,17 @@ const Squarese = styled.div`
 `
 export const SquareseBlock = () => {
     const squareses = useSelector(state => state.squares)
-    console.log(squareses)
+    //console.log(squareses)
    
-    /*
     const squareseBlock = squareses.map( (square, index) => {
         return (
-            <Squarese key={index}>{square.value}</Squarese>
+            <Squarese key={index}>{square.value === 0 ? '' : square.value}</Squarese>
         )
-    })*/
+    })
 
     return (
         <SquaresesWrapping>
-            TRY
+            {squareseBlock}
         </SquaresesWrapping>
     )
 }
