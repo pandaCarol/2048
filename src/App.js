@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { SquareseBlock } from './features/games/SquaresesZone';
+import { SquareseBlock } from './features/squares/SquaresesZone';
 
 function App() {
   return (
