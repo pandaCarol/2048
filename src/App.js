@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <NewGameBtn />
-       <SquareseBlock />
+      <SquareseBlock />
     </>
    
   );
