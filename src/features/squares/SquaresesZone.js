@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { valueToLeft } from "../../function/valueUpdate";
+import { updatePosiValue } from "./squaresesSlice";
+import { randomId, randomValue } from "../../function/randomPosiValue";
 
 const SquaresesWrapping = styled.div`
     margin: 16px auto;
@@ -17,6 +20,7 @@ const Squarese = styled.div`
 `
 export const SquareseBlock = () => {
     const squareses = useSelector(state => state.squares)
+    const dispatch = useDispatch()
     //console.log(squareses)
    
     const squareseBlock = squareses.map( (square, index) => {
@@ -25,7 +29,17 @@ export const SquareseBlock = () => {
         )
     })
 
-    const valueUpdateKeyUp = (e) => {
+    const valueUpdateKeyUp = e => {
+        const updateSqus = valueToLeft(squareses)
+        updateSqus.map(updateSqu => dispatch(updatePosiValue({id: updateSqu.id, value: updateSqu.value})))
+        setTimeout(() => dispatch(updatePosiValue({id: randomId(squareses), value: randomValue()})), 500)
+       
+        /*
+        if (e.target.value === 37) {
+            const updateSqus = valueToLeft(squareses)
+            updateSqus.map( updateSqu => dispatch(updatePosiValue(updateSqu.id, updateSqu.value)) )
+        }*/
+        /*
         switch(e.target.value) {
             //move to left
             case 37: 
@@ -38,11 +52,11 @@ export const SquareseBlock = () => {
 
             default: 
                 return
-        }
+        }*/
     }
 
     return (
-        <SquaresesWrapping >
+        <SquaresesWrapping onClick={valueUpdateKeyUp}>
             {squareseBlock}
         </SquaresesWrapping>
     )

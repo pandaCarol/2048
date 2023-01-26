@@ -24,7 +24,7 @@ const squaresSlice = createSlice({
     name: 'squares',
     initialState,
     reducers: {
-        inititalRandomPosiValue(state, action) {
+        updatePosiValue(state, action) {
             const { id, value } = action.payload
             const existingPosi = state.find(squares =>  squares.id === id);
             if (existingPosi) {
@@ -34,5 +34,5 @@ const squaresSlice = createSlice({
     }
 })
 
-export const { inititalRandomPosiValue } = squaresSlice.actions
+export const { updatePosiValue } = squaresSlice.actions
 export default squaresSlice.reducer
