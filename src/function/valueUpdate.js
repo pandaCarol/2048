@@ -1,13 +1,23 @@
 import React from "react";
 
 
-export function valueToLeft (squares) {
+export function mergeMetrix (squares, mergeGroup, toRoU) {
     let updateSquareses = []
     for (let i=0; i<4; i++) {
-        let targetArray = squares.filter(square => square.row === i)
+        let targetArray = squares.filter(square => {
+            if (mergeGroup === 'row') {
+                return square.row === i
+            }
+            if (mergeGroup === 'column') {
+                return square.column === i
+            }
+        })
         let curArray = targetArray.filter(square => square.value !== 0)
         console.dir(curArray)
 
+        if (!toRoU) {
+            curArray.reverse()
+        }
         let newMergeArray = []
         let previousSquValue = 0;
         for ( let squ of curArray) {
@@ -26,7 +36,6 @@ export function valueToLeft (squares) {
         if (previousSquValue !== 0) {
             newMergeArray.push(previousSquValue)
         }
-        console.log(newMergeArray)
         /*
         for (let j=0; j<curArray.length-1; j++) {
             if (curArray[j] === curArray[j+1]) {
@@ -43,7 +52,10 @@ export function valueToLeft (squares) {
         }
         let mergeRslt = curArray.filter(square => {return(square.value !==0 ? square.value : null) })*/
         let newArray = newMergeArray.concat(new Array(4-newMergeArray.length).fill(0))
-        console.log(newArray)
+         if (!toRoU) {
+            newArray.reverse()
+        }
+        //console.log(newArray)
         targetArray.map((squ, index) => {
             if (squ.value !== newArray[index]) {
                 let newSqu = {
@@ -52,9 +64,8 @@ export function valueToLeft (squares) {
                 }
                 updateSquareses.push(newSqu)
             }
-        })     
+        })
     }
-
-    console.log(updateSquareses)
+    //console.log(updateSquareses)
     return(updateSquareses)
 }
