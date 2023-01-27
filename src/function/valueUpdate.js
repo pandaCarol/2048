@@ -3,6 +3,7 @@ import React from "react";
 
 export function mergeMetrix (squares, mergeGroup, toRoU) {
     let updateSquareses = []
+    let roundScore = 0
     for (let i=0; i<4; i++) {
         let targetArray = squares.filter(square => {
             if (mergeGroup === 'row') {
@@ -13,7 +14,7 @@ export function mergeMetrix (squares, mergeGroup, toRoU) {
             }
         })
         let curArray = targetArray.filter(square => square.value !== 0)
-        console.dir(curArray)
+        //console.dir(curArray)
 
         if (!toRoU) {
             curArray.reverse()
@@ -25,6 +26,7 @@ export function mergeMetrix (squares, mergeGroup, toRoU) {
                 break
             }else if (squ.value === previousSquValue) {
                 newMergeArray.push(2*squ.value)
+                roundScore += 2*squ.value
                 previousSquValue = 0
             }else {
                 if(previousSquValue!==0) {
@@ -66,6 +68,6 @@ export function mergeMetrix (squares, mergeGroup, toRoU) {
             }
         })
     }
-    //console.log(updateSquareses)
-    return(updateSquareses)
+    console.log([updateSquareses, roundScore])
+    return([updateSquareses, roundScore])
 }

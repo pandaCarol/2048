@@ -6,18 +6,30 @@ import { updatePosiValue } from "./squaresesSlice";
 import { randomId, randomValue } from "../../function/randomPosiValue";
 
 const SquaresesWrapping = styled.div`
-    margin: 16px auto;
-    max-width: 50%;
+    margin: auto;
+    padding: 1.5vw;
+    max-width: 35vw;
+    height: 35vw;
     display: grid;
     grid-template-columns:repeat(4, 1fr);
+    border-radius: 0.4em;
+    background-color: #8b4513;
+    opacity: 0.5;
+    justify-items: center;
+    align-items: center;
 }
 `
 const Squarese = styled.div`
-    width: 100%;
-    height 50px; 
-    border: 1px solid gray;
+    width: 8vw;
+    height 8vw;
     text-align: center;
+    border-radius: 0.4em;
+    background-color: rgba(205, 133, 63, 0.5);
+
+    font-size: 30px;
+    color: #f0f8ff;
 `
+
 export const SquareseBlock = () => {
     const squareses = useSelector(state => state.squares)
     const dispatch = useDispatch()

@@ -17,7 +17,7 @@ export function randomId (squares, itera) {
     const squValueZero = squares.filter(square => square.value === 0);
     const zeroArraylength = squValueZero.length;
     const zeroArrayIndex = Math.floor(Math.random()*(zeroArraylength));
-    console.log(squValueZero[zeroArrayIndex])
+    //console.log(squValueZero[zeroArrayIndex])
     const randomId = squValueZero[zeroArrayIndex].id;
     return randomId;
 }
