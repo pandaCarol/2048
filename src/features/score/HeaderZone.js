@@ -2,7 +2,7 @@ import styled from "styled-components"
 import { ScoreBar } from "./scoreBtn"
 
 const HeaderWrapping = styled.div`
-    max-width: 35vw;
+    max-width: 38vw;
     margin: 0px auto;
 
     display: grid;
@@ -10,7 +10,7 @@ const HeaderWrapping = styled.div`
     justify-content: center;
 `
 const Title = styled.h1`
-    margin: auto 0.1em;
+    margin: auto 0;
     text-align: left;
 
     font: bold 40px Tahoma, sans-serif;

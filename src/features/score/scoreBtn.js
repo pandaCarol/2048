@@ -34,7 +34,7 @@ const ScoresValue = styled.h3`
 
 export const ScoreBar = () => {
     const scores =  useSelector(state => state.scores)
-    console.log(scores)
+    //console.log(scores)
     const scoresBlock = scores.map(score => {
         return(
             <ScoreInfoWrapping key={score.id}>

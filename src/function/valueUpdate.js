@@ -14,7 +14,7 @@ export function mergeMetrix (squares, mergeGroup, toRoU) {
             }
         })
         let curArray = targetArray.filter(square => square.value !== 0)
-        //console.dir(curArray)
+        console.dir(curArray)
 
         if (!toRoU) {
             curArray.reverse()
@@ -38,6 +38,7 @@ export function mergeMetrix (squares, mergeGroup, toRoU) {
         if (previousSquValue !== 0) {
             newMergeArray.push(previousSquValue)
         }
+        console.log(newMergeArray)
         /*
         for (let j=0; j<curArray.length-1; j++) {
             if (curArray[j] === curArray[j+1]) {
@@ -57,7 +58,8 @@ export function mergeMetrix (squares, mergeGroup, toRoU) {
          if (!toRoU) {
             newArray.reverse()
         }
-        //console.log(newArray)
+        console.log(newArray)
+        console.log(targetArray)
         targetArray.map((squ, index) => {
             if (squ.value !== newArray[index]) {
                 let newSqu = {

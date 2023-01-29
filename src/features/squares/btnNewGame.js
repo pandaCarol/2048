@@ -6,7 +6,7 @@ import { scoreUpdated } from "../score/scoresSlice";
 import { randomId, randomValue } from "../../function/randomPosiValue";
 
 const NewGameWrapping = styled.div`
-    max-width 35vw;
+    max-width 38vw;
     margin: 3px auto;
 
     display: grid;
@@ -20,11 +20,13 @@ const Introduction = styled.div`
     padding: 0.1em;
 `
 const Intro = styled.h5`
-    margin-block-start: 0.5em;
-    margin-block-end: 0.5em;
+    margin-block-start: 0.2em;
+    margin-block-end: 0.2em;
 `
 const Rules = styled.p`
     font-size: 13px;
+    margin-block-start: 0.2em;
+    margin-block-end: 0.2em;
 `
 
 const StartGame = styled.button `
@@ -46,11 +48,11 @@ const StartGame = styled.button `
 const gameInfo = <>
         <Intro>Start to Play 2048 Game online</Intro>
         <Rules>
-            <i>Use your arrow keys or buttons below to move the tiles.
-            When two tiles with the same number touch, they merge into one
-            </i>
+            <i>Use your arrow keys or buttons below to move the tiles.</i>
         </Rules>
     </>
+
+//When two tiles with the same number touch, they merge into one
 
 export const NewGameBtn = () => {
     const squares = useSelector(state => state.squares)
