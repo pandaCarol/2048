@@ -4,12 +4,19 @@ import { useDispatch, useSelector } from "react-redux"
 import { mergeMetrix } from "../../function/valueUpdate";
 import { updatePosiValue } from "./squaresesSlice";
 import { randomId, randomValue } from "../../function/randomPosiValue";
+import { WinPage } from "../status/winPage";
+
+const MainWrapping = styled.article`
+    position: relative;
+`
 
 const SquaresesWrapping = styled.div`
     margin: auto;
     padding: 1.5vw;
-    max-width: 35vw;
-    height: 35vw;
+    max-width: min(550px, 30vw);
+    min-width: min(400px,max(240px, 70vw));
+    max-height: min(550px, 30vw);
+    min-height: min(400px,max(240px, 70vw));
     display: grid;
     grid-template-columns:repeat(4, 1fr);
     border-radius: 0.4em;
@@ -20,13 +27,14 @@ const SquaresesWrapping = styled.div`
 }
 `
 const Squarese = styled.div`
-    width: 8vw;
-    height 8vw;
+    max-width: min(15vw, 85px);
+    min-width: min(85px, max(50px, 15vw));
+    max-height min(15vw, 85px);
+    min-height: min(85px, max(50px, 15vw));
     text-align: center;
     border-radius: 0.4em;
     background-color: rgba(205, 133, 63, 0.5);
 
-    font-size: 30px;
     background-color: ${props => squColor(props.value)};
     box-shadow: ${props => props.value > 512 ? '0 0 12px #ffff00' : 0};
     color: ${props => {
@@ -37,12 +45,20 @@ const Squarese = styled.div`
         } else {
             return 'black'
         }
-    }}
+    }};
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 const Values = styled.p`
-    font-size: 24px;
+    font-size: ${document.documentElement.clientWidth > 500 ? '24px' : '18px'};
     font-weight: 700;
+    margin-block-start: 0;
+    margin-block-end: 0;
 `
+
+
 function squColor (value) {
     switch(value) {
         case 2: 
@@ -102,9 +118,14 @@ export const SquareseBlock = () => {
     */
 
     return (
-        <SquaresesWrapping>
-            {squareseBlock}
-        </SquaresesWrapping>
+        <MainWrapping>
+            <SquaresesWrapping>
+                {squareseBlock}
+            </SquaresesWrapping>
+            <WinPage ></WinPage>
+        </MainWrapping>
+        
+        
     )
 }
 

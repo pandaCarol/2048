@@ -46,7 +46,7 @@ export function valueUpdateKeyUp(arrowType, squareses) {
         const group = Object.values(ControllerObject)[controllerIndex].mergeGroup
         const direction = Object.values(ControllerObject)[controllerIndex].toLoU
 
-         //mergeMetrix output two parts in an array, [updateSque， roundScore]
+         //mergeMetrix output two parts in an array, [updateSque， roundScore, isWin]
          console.log([squareses, group, direction])
         const updateGroup = mergeMetrix(squareses, group, direction)
         return updateGroup;

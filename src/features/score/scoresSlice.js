@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = [
     { id: 'SCORE', value: 0 },
-    { id: 'BEST', value: 0 }
+    { id: 'BEST', value: 0 }, 
+    { id: 'Round', value: 0}
 ]
 
 const scoresSlice = createSlice({
